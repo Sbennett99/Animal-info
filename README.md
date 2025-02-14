@@ -1,6 +1,13 @@
-# Panda Info
+# Animal Info
 
-Shift+RMB on panda to show its genes.
+Shift+RMB on Animals to show relevant genes/stats.
+
+Pandas:
+  Type genes 
+
+Horses/Horse-like Animals:
+  MaxSpeed in blocks/s
+  MaxJump in Blocks
 
 ## License
 
