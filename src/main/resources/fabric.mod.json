@@ -1,16 +1,17 @@
 {
   "schemaVersion": 1,
-  "id": "panda-info",
+  "id": "animal-info",
   "version": "${version}",
 
-  "name": "Panda Info",
-  "description": "Shift+RMB on panda to show its genes",
+  "name": "Animal Info",
+  "description": "Shift+RMB on Animals to show applicable genes",
   "authors": [
+    "x5h4d0wx",
     "mine_diver",
     "PusGarlic"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/panda-info",
+
     "sources": "https://github.com/mineLdiver/panda-info",
     "issues": "https://github.com/mineLdiver/panda-info/issues"
   },
@@ -21,14 +22,14 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "net.mine_diver.pandainfo.PandaInfo"
+      "net.x5h4d0wx.animalinfo.AnimalInfo"
     ]
   },
 
   "depends": {
     "fabricloader": ">=0.13.3",
     "fabric": "*",
-    "minecraft": "1.20.x",
+    "minecraft": "1.21.x",
     "java": ">=17"
   }
 }
