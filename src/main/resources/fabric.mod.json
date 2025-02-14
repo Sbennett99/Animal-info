@@ -12,11 +12,11 @@
   ],
   "contact": {
 
-    "sources": "https://github.com/mineLdiver/panda-info",
-    "issues": "https://github.com/mineLdiver/panda-info/issues"
+    "sources": "https://github.com/Sbennett99/Animal-info/",
+    "issues": "https://github.com/Sbennett99/Animal-info/issues"
   },
 
-  "license": "MIT",
+  "license": "CCO-1.0",
   "icon": "assets/icon/icon.png",
 
   "environment": "client",
