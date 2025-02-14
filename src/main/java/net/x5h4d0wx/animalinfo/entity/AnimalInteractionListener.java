@@ -1,5 +1,6 @@
 package net.x5h4d0wx.animalinfo.entity;
 
+
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -14,8 +15,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-
-
 
 import java.util.List;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -36,7 +35,8 @@ public class AnimalInteractionListener implements UseEntityCallback {
     @Override
     public ActionResult interact(PlayerEntity player, World world, Hand hand, Entity entity, @Nullable EntityHitResult hitResult) {
         Text outText = null;
-        
+        // CommandDispatcher<FabricClientCommandSource> test = ClientCommandManager.getActiveDispatcher();
+        // player.sendMessage(Text.of(String.valueOf(test==null)), true);
         exec_scheduled.set(false);
         if (player.hasVehicle() || player.isSneaking()) {
             switch (entity) {
@@ -58,8 +58,6 @@ public class AnimalInteractionListener implements UseEntityCallback {
                     final double blockSpeed = horsish.getAttributeValue(EntityAttributes.MOVEMENT_SPEED)* HORSE_SPEED_CONVERSION;
                     final double blockJump = jumpStrToBlocks(horsish.getAttributeValue(EntityAttributes.JUMP_STRENGTH));
                     outText = Text.of(String.format("Speed: %1$.2f | Jump %2$.2f ",blockSpeed, blockJump));
-
-                    
 
                     break;
                 default:

@@ -17,7 +17,7 @@
   },
 
   "license": "MIT",
-  "icon": "assets/panda-info/icon.png",
+  "icon": "assets/icon/icon.png",
 
   "environment": "client",
   "entrypoints": {
