@@ -11,4 +11,4 @@ Horses/Horse-like Animals:
 
 ## License
 
-This mod is available under the CC0-1.0-1-ov-file license.
+This mod is available under the CC0-1.0 license.
