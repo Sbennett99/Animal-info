@@ -3,7 +3,7 @@
 Shift+RMB on Animals to show relevant genes/stats.
 
 Pandas:
-  Type genes 
+  - Type genes 
 
 Horses, Mules, Donkeys, Llamas:
   - MaxSpeed in blocks/s
