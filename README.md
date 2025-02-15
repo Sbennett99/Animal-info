@@ -6,8 +6,8 @@ Pandas:
   Type genes 
 
 Horses, Mules, Donkeys, Llamas:
-  MaxSpeed in blocks/s
-  MaxJump in Blocks
+  - MaxSpeed in blocks/s
+  - MaxJump in Blocks
 
 ## License
 
