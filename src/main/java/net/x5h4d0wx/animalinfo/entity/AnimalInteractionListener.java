@@ -57,7 +57,8 @@ public class AnimalInteractionListener implements UseEntityCallback {
                 case AbstractHorseEntity horsish:
                     final double blockSpeed = horsish.getAttributeValue(EntityAttributes.MOVEMENT_SPEED)* HORSE_SPEED_CONVERSION;
                     final double blockJump = jumpStrToBlocks(horsish.getAttributeValue(EntityAttributes.JUMP_STRENGTH));
-                    outText = Text.of(String.format("Speed: %1$.2f | Jump %2$.2f ",blockSpeed, blockJump));
+                    final double health = horsish.getAttributeValue(EntityAttributes.MAX_HEALTH);
+                    outText = Text.of(String.format("Speed: %1$.2f | Jump %2$.2f | Hearts %3$.2f ",blockSpeed, blockJump, health/2));
 
                     break;
                 default:
