@@ -10,7 +10,7 @@ Horses, Mules, Donkeys, Llamas:
   - MaxJump in Blocks
 
 Goats
-  - Type Screaming
+  - Type Screaming?
 
 ## License
 
