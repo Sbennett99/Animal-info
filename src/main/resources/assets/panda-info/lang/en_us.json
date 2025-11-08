@@ -1,7 +1,7 @@
 {
-  "gui.panda-info.main_gene": "Main gene: %s",
-  "gui.panda-info.hidden_gene": "Hidden gene: %s",
-  "gui.panda-info.product_gene": "Product gene: %s",
+  "gui.panda-info.main_gene": "%sMain gene: %s",
+  "gui.panda-info.hidden_gene": "%sHidden gene: %s",
+  "gui.panda-info.product_gene": "%sProduct gene: %s",
 
   "gui.panda-info.gene.NORMAL": "Normal (Dominant)",
   "gui.panda-info.gene.AGGRESSIVE": "Aggressive (Dominant)",
