@@ -16,7 +16,7 @@ import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
 import java.util.HashMap;
 import java.util.List;
@@ -39,10 +39,8 @@ public class AnimalInteractionListener implements UseEntityCallback {
         executor.setMaximumPoolSize(2);
     }
     @Override
-    public InteractionResult interact(Player player, Level world, InteractionHand hand, Entity entity, @Nullable EntityHitResult hitResult) {
+    public @NonNull InteractionResult interact(@NonNull Player player,@NonNull Level world, @NonNull InteractionHand hand, @NonNull Entity entity, @NonNull EntityHitResult hitResult) {
         Component outText = null;
-        // CommandDispatcher<FabricClientCommandSource> test = ClientCommandManager.getActiveDispatcher();
-        // player.sendMessage(Text.of(String.valueOf(test==null)), true);
         exec_scheduled.set(false);
 
         if (!player.isPassenger() && !player.isCrouching()){
@@ -65,16 +63,21 @@ public class AnimalInteractionListener implements UseEntityCallback {
                 mainGene = Component.translatable("gui.panda-info.main_gene", "§6", mainGene);
                 hiddenGene = Component.translatable("gui.panda-info.hidden_gene", "§b", hiddenGene);
                 productGene = Component.translatable("gui.panda-info.product_gene", "§a", productGene);
-
-                outText = ComponentUtils.formatList(List.of(mainGene, hiddenGene, productGene), Component.literal(" §r| "));
+                final List<MutableComponent> panda_message_list = List.of(mainGene, hiddenGene, productGene);
+                if (panda_message_list != null){
+                    outText = ComponentUtils.formatList(panda_message_list, Component.literal(" §r| "));
+                }
 
                 break;
 
             case AbstractHorse horsish:
                 final double blockSpeed = horsish.getAttributeValue(Attributes.MOVEMENT_SPEED)* HORSE_SPEED_CONVERSION;
                 final double blockJump = jumpStrToBlocks(horsish.getAttributeValue(Attributes.JUMP_STRENGTH));
-                final double health = horsish.getAttributeValue(Attributes.MAX_HEALTH);
-                outText = Component.literal(String.format("§6Speed: %1$.2f §r| §bJump %2$.2f §r| §aHearts %3$.2f ",blockSpeed, blockJump, health/2));
+                final double health_hearts = horsish.getAttributeValue(Attributes.MAX_HEALTH)/2;
+                final String horsish_message = String.format("§6Speed: %1$.2f §r| §bJump %2$.2f §r| §aHearts %3$.2f ",blockSpeed, blockJump, health_hearts);
+                if (horsish_message != null){
+                    outText = Component.literal(horsish_message);
+                }
 
                 break;
 
@@ -103,7 +106,7 @@ public class AnimalInteractionListener implements UseEntityCallback {
         return (JUMP_A * jumpPower * jumpPower) + (JUMP_B * jumpPower);
     }
 
-    private static void lingeringMessageHandeler(Player player, Entity entity ,Component message){
+    private static void lingeringMessageHandeler(@NonNull Player player, @NonNull Entity entity ,@NonNull Component message){
         player.sendOverlayMessage(message);
         if(player.isWithinEntityInteractionRange(entity,0) && exec_scheduled.get()){
             executor.schedule(() -> lingeringMessageHandeler(player, entity, message), 100, TimeUnit.MILLISECONDS);
@@ -112,7 +115,7 @@ public class AnimalInteractionListener implements UseEntityCallback {
         }
     }
 
-    private static void sendLingeringMessage(Player player, Entity entity ,Component message){
+    private static void sendLingeringMessage(@NonNull Player player, @NonNull Entity entity ,Component message){
         final String messageCopy = message.getString();
         while (!exec_ended.get()) {}
         exec_scheduled.set(true);
